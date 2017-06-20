@@ -1,0 +1,10 @@
+#
+#Tue Jun 20 15:51:51 UTC 2017
+Name=chucknorrisjokes
+URL=http\://api.icndb.com
+ProxyType=Internet
+Type=HTTP
+CloudConnectorVersion=2
+WebIDEEnabled=true
+Authentication=NoAuthentication
+Description=Chuck Norris Jokes
