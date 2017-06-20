@@ -1,0 +1,36 @@
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+
+  <title>Chuck Norris Jokes with Vue.js on SAP Cloud Platform</title>
+  
+  <meta name="description" content="Chuck Norris Jokes with Vue.js on SAP Cloud Platform">
+  <meta name="author" content="Denise Nepraunig">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  
+  <!-- I am using pure css to get a nice font and a good looking button -->
+  <!-- https://purecss.io/start/ -->
+  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  
+  <script src="https://unpkg.com/vue"></script>
+</head>
+
+<body>
+	<center>
+		<div class="splash-container" style="width:90%;" id="app">
+		    <div class="splash">
+		        <h1 class="splash-head">Chuck Norris Jokes</h1>
+		        <p class="splash-subhead">
+		            {{ message }}
+		        </p>
+		        <p>
+		            <button class="pure-button pure-button-primary" v-on:click="onJokeButtonClick">New Joke</button>
+		        </p>
+		    </div>
+		</div>
+	</center>
+	
+	<!-- Vue.js magic script -->
+	<script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "welcomeFile": "index.html",
+  "sendWelcomeFileRedirect": true,
+  "authenticationMethod": "none",
+  "routes": [
+    {
+      "path": "/destination/chucknorrisjokes",
+      "target": {
+        "type": "destination",
+        "name": "chucknorrisjokes"
+      },
+      "description": "Chuck Norris Jokes"
+    }
+  ],
+  "cacheControl": [
+    {
+      "directive": "private",
+      "maxAge": 0,
+      "path": "*html"
+    },
+    {
+      "directive": "public",
+      "maxAge": 31536000
+    }
+  ]
+}
