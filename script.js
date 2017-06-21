@@ -1,13 +1,5 @@
 var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
 
-// good old xhr, because the JavaScript fetch API did not work... 503?
-var xhr = new XMLHttpRequest();
-
-function getJoke() {
-    xhr.open('GET', jokesURL);
-    xhr.send(null);
-}
-
 // configure the app
 var app = new Vue({
     el: '#app',
@@ -21,42 +13,58 @@ var app = new Vue({
     }
 });
 
-xhr.onreadystatechange = function() {
+function get(url) {
+  // Return a new promise.
+  return new Promise(function(resolve, reject) {
+    // Do the usual XHR stuff
+    // because the JavaScript fetch API did not work... 503?
+    var req = new XMLHttpRequest();
+    req.open('GET', url);
 
-    var DONE = 4; // readyState 4 means the request is done
-    var OK = 200; // status 200 is a successful return
+    req.onload = function() {
+      // This is called even on 404 etc
+      // so check the status
+      if (req.status == 200) {
+        // Resolve the promise with the response text
+        resolve(req.response);
+      }
+      else {
+        // Otherwise reject with the status text
+        // which will hopefully be a meaningful error
+        reject(Error(req.statusText));
+      }
+    };
 
-    if (xhr.readyState === DONE) {
-        if (xhr.status === OK) {
+    // Handle network errors
+    req.onerror = function() {
+      reject(Error("Network Error"));
+    };
 
-            var response = "";
+    // Make the request
+    req.send();
+  });
+}
 
-            if (xhr.responseText) {
-				
-				// try to parse the JSON response
-                try {
-                    response = JSON.parse(xhr.responseText);
-                } catch (e) {
-                    console.log("Error parsing the JSON response: ", e);
-                    return;
-                }
-                
-            } else {
-                console.log("There is no response.");
-                return;
-            }
-
-            // the joke is stored inside the value object with the joke property
-            if (response && response.value && response.value.joke) {
-                app.message = response.value.joke;
-            }
-
-        } else {
-            // error sending the request
-            console.log('Error: ' + xhr.status);
+function getJoke() {
+    get(jokesURL).then(function(response) {
+	  
+	  var responseJSON = "";
+	    try {
+            responseJSON = JSON.parse(response);
+        } catch (e) {
+            console.log("Error parsing the JSON response: ", e);
+            app.message = "-- Error parsing jokes response. --";
+            return;
         }
-    }
-};
+        // the joke is stored inside the value object with the joke property
+        if (responseJSON && responseJSON.value && responseJSON.value.joke) {
+            app.message = responseJSON.value.joke;
+        }
+	}, function(error) {
+		app.message = "-- Failed loading jokes! --";
+	  console.error("Failed loading jokes!", error);
+	});
+}
 
 // when starting the app load a joke
 getJoke();
