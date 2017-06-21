@@ -4,7 +4,8 @@ var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
 var app = new Vue({
     el: '#app',
     data: {
-        message: ''
+        message: '',
+        id: ''
     },
     methods: {
         onJokeButtonClick: function() {
@@ -37,7 +38,7 @@ function get(url) {
 
     // Handle network errors
     req.onerror = function() {
-      reject(Error("Network Error"));
+      reject(Error('Network Error'));
     };
 
     // Make the request
@@ -52,17 +53,19 @@ function getJoke() {
 	    try {
             responseJSON = JSON.parse(response);
         } catch (e) {
-            console.log("Error parsing the JSON response: ", e);
-            app.message = "-- Error parsing jokes response. --";
+            console.log('Error parsing the JSON response: ', e);
+            app.message = '-- Error parsing jokes response. --';
             return;
         }
         // the joke is stored inside the value object with the joke property
-        if (responseJSON && responseJSON.value && responseJSON.value.joke) {
-            app.message = responseJSON.value.joke;
+        if (responseJSON && responseJSON.value) {
+            
+            app.message = responseJSON.value.joke || '-- no joke --';
+            app.id = responseJSON.value.id || '';
         }
 	}, function(error) {
-		app.message = "-- Failed loading jokes! --";
-	  console.error("Failed loading jokes!", error);
+		app.message = '-- Failed loading jokes! --';
+	  console.error('Failed loading jokes!', error);
 	});
 }
 
