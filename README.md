@@ -21,3 +21,6 @@ Running demo application: [Chuck Norris Jokes Vue.js app hosted on SAP Cloud Pla
 Used libraries:
 * [Vue.js](https://vuejs.org/)
 * [PureCSS](https://purecss.io/)
+* 
+## Info
+* [neo-app.json](https://help.sap.com/viewer/65de2977205c403bbc107264b8eccf4b/Cloud/en-US/aed1ffa3f3e741b3a4573c9e475aa2a4.html)
