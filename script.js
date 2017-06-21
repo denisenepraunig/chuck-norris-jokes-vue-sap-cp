@@ -65,6 +65,7 @@ function getJoke() {
         }
 	}, function(error) {
 		app.message = '-- Failed loading jokes! --';
+		app.id = '-';
 	  console.error('Failed loading jokes!', error);
 	});
 }
