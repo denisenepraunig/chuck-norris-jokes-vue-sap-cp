@@ -1,4 +1,4 @@
-var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]&escape=javascript";
+var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
 
 // good old xhr, because the JavaScript fetch API did not work... 503?
 var xhr = new XMLHttpRequest();
