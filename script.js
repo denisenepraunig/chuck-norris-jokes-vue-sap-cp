@@ -1,4 +1,4 @@
-var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
+var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]?escape=javascript";
 
 // configure the service worker for offline experience
 if ('serviceWorker' in navigator) {
