@@ -1,4 +1,4 @@
-var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]?escape=javascript";
+var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
 
 // configure the service worker for offline experience
 if ('serviceWorker' in navigator) {
@@ -7,19 +7,36 @@ if ('serviceWorker' in navigator) {
   });
 }
 
-// configure the app
-var app = new Vue({
-    el: '#app',
-    data: {
-        message: '',
-        id: ''
-    },
-    methods: {
-        onJokeButtonClick: function() {
-            getJoke();
-        }
-    }
-});
+var app;
+
+function domReady(){
+	
+	console.log("DOM ready");
+	
+  // configure the app
+	app = new Vue({
+	    el: '#app',
+	    data: {
+	        message: '',
+	        id: ''
+	    },
+	    methods: {
+	        onJokeButtonClick: function() {
+	            getJoke();
+	        }
+	    }
+	});
+}
+
+if (
+    document.readyState === "complete" ||
+    (document.readyState !== "loading" && !document.documentElement.doScroll)
+) {
+  domReady();
+} else {
+  document.addEventListener("DOMContentLoaded", domReady);
+}
+
 
 function get(url) {
   // Return a new promise.
@@ -67,7 +84,13 @@ function getJoke() {
         // the joke is stored inside the value object with the joke property
         if (responseJSON && responseJSON.value) {
             
-            app.message = responseJSON.value.joke || '-- no joke --';
+            var joke = responseJSON.value.joke || '-- no joke --';
+            
+            // probably use unescape in the future
+            // https://www.npmjs.com/package/unescape
+            var jokeEscaped = joke.replace(/&quot;/g, '"');
+            
+            app.message = jokeEscaped;
             app.id = responseJSON.value.id || '';
         }
 	}, function(error) {
