@@ -8,12 +8,19 @@
   <meta name="author" content="Denise Nepraunig">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   
+  <!-- Apple is still ignoring a manifest.json... -->
+  <!-- https://developer.apple.com/library/content/documentation/AppleApplications/Reference/SafariWebContent/ConfiguringWebApplications/ConfiguringWebApplications.html -->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  
   <link rel="manifest" href="/manifest.json">
   
   <!-- I am using pure css to get a nice font and a good looking button -->
   <!-- https://purecss.io/start/ -->
   <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
   
+  <link rel="apple-touch-icon" href="images/touch/apple-touch-icon.png">
+  <link rel="apple-touch-startup-image" href="images/launcher-icon-4x.png">
+
   <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
 </head>
 
