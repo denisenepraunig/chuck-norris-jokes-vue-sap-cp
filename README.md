@@ -6,11 +6,7 @@ A small [Chuck Norris Jokes App](https://chucknorrisjokesvuesapcp-d062712trial.d
 
 Import the file *chucknorrisjokes* inside the **destination** folder into your SAP Cloud Platform Cockpit under **Connectivity -> Destinations -> Import Destination**.
 
-Create a new folder inside the SAP Web IDE and create the files *index.html*, *script.js* and *neo-app.json* and copy over the content from this repository.
-
-Run it.
-
-Deploy it to your SAP Cloud Platform inside the SAP Web IDE.
+Deploy it to your SAP Cloud Platform from inside the SAP Web IDE.
 
 Enjoy 😉
 
