@@ -12,6 +12,7 @@ var app;
 // sometimes there was no content visible in the app div
 // on the first load, may this fixes the problem with DOMContentLoaded
 // altough my script is loaded at the end of the body...
+// https://www.sitepoint.com/jquery-document-ready-plain-javascript/
 function domReady(){
 	
 	console.log("DOM ready");
