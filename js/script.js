@@ -2,7 +2,7 @@ var jokesURL = "./destination/chucknorrisjokes/jokes/random?limitTo=[nerdy]";
 
 // configure the service worker for offline experience
 if ('serviceWorker' in navigator) {
-  navigator.serviceWorker.register('/service-worker.js', {
+  navigator.serviceWorker.register('js/service-worker.js', {
     scope: '/'
   });
 }
