@@ -16,6 +16,9 @@ Running demo application: [Chuck Norris Jokes Vue.js app hosted on SAP Cloud Pla
 ## Next steps
 * cache jokes locally
 
+## Done
+* ✅ **[Service Workers](https://developers.google.com/web/fundamentals/getting-started/primers/service-workers)** cache the whole UI - after going offline you could still refresh the page and see an UI on Chrome (Desktop & Android) - but NOT in Safari (iOS) as it is not supported... Jokes are not chached yet.
+
 ## Libraries
 Used libraries:
 * [Vue.js](https://vuejs.org/)
