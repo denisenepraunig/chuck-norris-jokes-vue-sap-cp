@@ -13,6 +13,9 @@ Enjoy 😉
 ## Demo
 Running demo application: [Chuck Norris Jokes Vue.js app hosted on SAP Cloud Platform](https://chucknorrisjokesvuesapcp-d062712trial.dispatcher.hanatrial.ondemand.com/index.html?hc_reset)
 
+## Next steps
+* cache jokes locally
+
 ## Libraries
 Used libraries:
 * [Vue.js](https://vuejs.org/)
