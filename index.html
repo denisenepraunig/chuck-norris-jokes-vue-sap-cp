@@ -20,12 +20,25 @@
   
   <!-- I am using pure css to get a nice font and a good looking button -->
   <!-- https://purecss.io/start/ -->
-  <link rel="stylesheet" href="https://unpkg.com/purecss@1.0.0/build/pure-min.css" integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous">
+  
+  <!-- pure-css from CDN: -->
+  <!-- https://unpkg.com/purecss@1.0.0/build/pure-min.css -->
+  <!-- integrity="sha384-nn4HPE8lTHyVtfCBi5yW9d20FjT8BJwUXyWZT9InLYax14RDjBj46LmSztkmNP9w" crossorigin="anonymous" -->
+  <link rel="stylesheet" href="css/pure-min.css">
   
   <link rel="apple-touch-icon" href="images/touch/apple-touch-icon-white.png">
   <link rel="apple-touch-startup-image" href="images/safari-launch-white.png">
 
-  <script src="https://unpkg.com/vue@2.3.4/dist/vue.min.js"></script>
+  <!-- https://unpkg.com/vue@2.3.4/dist/vue.min.js -->
+  <script src="js/vue.min.js"></script>
+  
+  <!-- some local styles -->
+  <style>
+  .joke-info {
+      color: #999;
+      font-size: 70%;
+  }
+  </style>
 </head>
 
 <body>
@@ -39,6 +52,9 @@
 		        <p class="splash-subhead">
 		            {{message}}
 		        </p>
+                <p class="joke-info">
+                    {{source}}
+                </p>
 		        <p>
 		            <button class="pure-button pure-button-primary" v-on:click="onJokeButtonClick">New Joke</button>
 		        </p>
